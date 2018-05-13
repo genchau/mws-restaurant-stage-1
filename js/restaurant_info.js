@@ -83,7 +83,7 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
     row.appendChild(day);
 
     const time = document.createElement('td');
-    time.innerHTML = operatingHours[key];
+    time.innerHTML = operatingHours[key].replace(",", ",<br>");
     row.appendChild(time);
 
     hours.appendChild(row);
@@ -95,9 +95,12 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
  */
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
+  const div = document.createElement('div');
+  div.classList.add("reviews-header");
   const title = document.createElement('h2');
   title.innerHTML = 'Reviews';
-  container.appendChild(title);
+  div.appendChild(title);
+  container.appendChild(div);
 
   if (!reviews) {
     const noReviews = document.createElement('p');
@@ -105,9 +108,10 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
     container.appendChild(noReviews);
     return;
   }
+
   const ul = document.getElementById('reviews-list');
   reviews.forEach(review => {
-    ul.appendChild(createReviewHTML(review));
+    ul.appendChild( createReviewHTML(review) );
   });
   container.appendChild(ul);
 }
@@ -116,34 +120,38 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  * Create review HTML and add it to the webpage.
  */
 createReviewHTML = (review) => {
-  const li = document.createElement('li');
+  const div2 = document.createElement('div');
+  div2.classList.add("review-single");
 
-    const div = document.createElement('div');
-    div.classList.add("review-header");
+    const li = document.createElement('li');
 
-      const name = document.createElement('p');
-      name.classList.add("review-name");
-      name.innerHTML = review.name;
-      div.appendChild(name);
+      const div = document.createElement('div');
+      div.classList.add("review-header");
 
-      const date = document.createElement('p');
-      date.classList.add("review-date");
-      date.innerHTML = review.date;
-      div.appendChild(date);
+        const name = document.createElement('p');
+        name.classList.add("review-name");
+        name.innerHTML = review.name;
+        div.appendChild(name);
 
-    li.appendChild(div);
+        const date = document.createElement('p');
+        date.classList.add("review-date");
+        date.innerHTML = review.date;
+        div.appendChild(date);
 
-    const rating = document.createElement('p');
-    rating.classList.add("review-rating");
-    rating.innerHTML = `Rating: ${review.rating}`;
-    li.appendChild(rating);
+      li.appendChild(div);
 
-    const comments = document.createElement('p');
-    comments.classList.add("review-comments");
-    comments.innerHTML = review.comments;
-    li.appendChild(comments);
+      const rating = document.createElement('p');
+      rating.classList.add("review-rating");
+      rating.innerHTML = `Rating: ${review.rating}`;
+      li.appendChild(rating);
 
-  return li;
+      const comments = document.createElement('p');
+      comments.classList.add("review-comments");
+      comments.innerHTML = review.comments;
+      li.appendChild(comments);
+
+    div2.appendChild(li);
+  return div2;
 }
 
 /**
