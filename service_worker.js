@@ -1,4 +1,4 @@
-const staticCacheName = 'restaurant-reviews-v8';
+const staticCacheName = 'restaurant-reviews-v14';
 
 self.addEventListener('install', function(event) {
   console.log("Service Worker installed");

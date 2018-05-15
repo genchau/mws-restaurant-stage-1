@@ -25,13 +25,13 @@
     display: flex;
     flex-wrap: wrap;
   }
-  #restaurants-list li {
+  #restaurants-list a {
     width: 45%;
   }
-  #restaurants-list li h1 {
+  #restaurants-list a li h1 {
     font-size: 1.0em;
   }
-  #restaurants-list li p {
+  #restaurants-list a li p {
     font-size: 0.6em;
   }
 }
@@ -60,13 +60,13 @@
     margin-left: auto;
     margin-right: auto;
   }
-  #restaurants-list li {
+  #restaurants-list a {
     width: 30%;
   }
-  #restaurants-list li h1 {
+  #restaurants-list a li h1 {
     font-size: 0.9em;
   }
-  #restaurants-list li p {
+  #restaurants-list a li p {
     font-size: 0.6em;
   }
 }

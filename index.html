@@ -14,15 +14,14 @@
 
 <body>
   <header>
-    <nav>
-      <h1><a href="/">Restaurant Reviews</a></h1>
-    </nav>
+    <h1><a href="/">Restaurant Reviews</a></h1>
   </header>
+  <a href="#neighborhoods-select" class="skip-link">Skip the map controls and go to restaurant filter.</a>
 
   <main id="maincontent">
     <section id="map-container">
-      <div id="map"></div>
-      <div class="filter-options">
+      <section id="map" role="application"></section>
+      <section class="filter-options" id="restaurant-filter">
         <h2>Filter Results</h2>
         <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
           <option value="all">All Neighborhoods</option>
@@ -30,7 +29,7 @@
         <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
           <option value="all">All Cuisines</option>
         </select>
-      </div>
+      </section>
     </section>
     <section id="restaurants">
       <ul id="restaurants-list"></ul>

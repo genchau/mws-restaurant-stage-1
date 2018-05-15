@@ -51,6 +51,22 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   text-align: center;
   text-transform: uppercase;
 }
+/* ====================== Skip Link ====================== */
+.skip-link {
+  position: absolute;
+  top: -300px;  // this is to hide the element
+  left: 0;
+  background: #BF1722;
+  color: white;
+  padding: 8px;
+  font-size: 1em;
+  font-weight: 600;
+  z-index: 100;
+}
+.skip-link:focus {
+  top: 0;
+  color: white;
+}
 /* ====================== Header ====================== */
 header {
   width: 100%;
@@ -141,6 +157,14 @@ nav h1 a {
   margin: 10px;
   padding: 0 10px;
 }
+#cuisines-select:focus,
+#neighborhoods-select:focus {
+  text-decoration: underline;
+  box-shadow: 2px 2px 10px white;
+  outline: 2px solid gray;
+  color: #3397DB;
+
+}
 
 /* ====================== Restaurant Listing ====================== */
 #restaurants-list {
@@ -149,8 +173,10 @@ nav h1 a {
   margin: 0;
   padding: 0;
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
 }
-#restaurants-list li {
+#restaurants-list a {
   background-color: #fff;
   border: 2px solid #ccc;
   border-radius: 1em;
@@ -165,6 +191,12 @@ nav h1 a {
   margin-top: 0.5em;
   margin-bottom: 0.3em;
 }
+#restaurants-list a:focus {
+  outline: 0;
+  border: 3px dashed lightsteelblue;
+  background-color: #FFFAF0;
+  box-shadow: 5px 5px 10px lightblue;
+} 
 #restaurants-list .restaurant-img {
   background-color: #ccc;
   display: block;
@@ -172,7 +204,7 @@ nav h1 a {
   width: 100%;
   border-radius: 1.5em 0;
 }
-#restaurants-list li h1 {
+#restaurants-list a li h1 {
   color: #f18200;
   font-family: Arial,sans-serif;
   font-size: 1.2em;
@@ -234,9 +266,9 @@ nav h1 a {
   margin-left: auto;
   margin-right: auto;
 }
-#restaurant-img {
+.restaurant-img {
+  width: 100%;
   border-radius: 1.5em 0;
-	width: 100%;
 }
 #restaurant-address {
   font-size: 12pt;
