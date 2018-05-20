@@ -1,4 +1,4 @@
-const staticCacheName = 'restaurant-reviews-v14';
+const staticCacheName = 'restaurant-reviews-v17';
 
 self.addEventListener('install', function(event) {
   console.log("Service Worker installed");
@@ -60,6 +60,9 @@ self.addEventListener('fetch', function(event) {
           cache.put(event.request, response.clone());
           console.log("new data added to cache", event.request.url);
           return response;
+        }).catch(function(error) {
+          console.log("What is wrong with me service worker?", error);
+          return fetch('img/dr-evil.gif');
         });
       });
     })
